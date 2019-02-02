@@ -1,0 +1,5 @@
+/bin/bash
+a=0
+b=$a+1
+echo "a value is $a"
+echo "b value is $b"
