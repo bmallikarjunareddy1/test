@@ -1,0 +1,32 @@
+---
+- name: apache web_server
+  hosts: grp1
+  tasks:
+  - name: httpd
+    yum:
+      name: httpd
+      state: present
+  - name: firewalld
+    yum:
+      name: firewalld
+      state: present
+  - name: service httpd
+    service:
+        name: httpd
+        state: started
+        enabled: yes
+  - name: service firewalld
+    service:
+        name: firewalld
+        state: started 
+        enabled: yes
+  - name: Add http to firewall
+    firewalld:
+        service: http
+        state: enabled
+        permanent: yes
+        immediate: yes
+  - name: create content file
+    copy:
+       content: "This is Shanvika Reddy sample webpage"
+       dest: /var/www/html/index.html
