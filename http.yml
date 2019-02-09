@@ -1,6 +1,6 @@
 ---
 - name: apache web_server
-  hosts: localhost 
+  hosts: grp1 
   tasks:
   - name: httpd
     yum:
